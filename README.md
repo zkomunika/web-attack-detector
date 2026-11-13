@@ -35,3 +35,4 @@ Proyek ini adalah detektor serangan web untuk mata kuliah Keamanan Informasi yan
 
 ## Catatan Temuan
 Catatan temuan dan hasil pengamatan masing-masing anggota dapat dilihat di `docs/catatan-A.md`, `docs/catatan-B.md`, dan `docs/catatan-C.md`.
+

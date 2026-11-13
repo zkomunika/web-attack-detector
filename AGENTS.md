@@ -6,3 +6,4 @@
 - Tulis kode sederhana dengan komentar bahasa Indonesia singkat; jangan menambah fitur di luar rencana.
 - Seed acak selalu 42. Kelas serangan = 1.
 - Jelaskan tiap fungsi dalam satu kalimat agar anggota kelompok bisa mengulanginya.
+

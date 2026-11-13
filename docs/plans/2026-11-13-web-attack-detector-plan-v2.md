@@ -86,12 +86,12 @@ web-attack-detector/
 **Interfaces:**
 - Produces di `src/config.py`: `SEED = 42`, `MAX_REQUEST_CHARS = 1000`, `OLLAMA_HOST = "http://localhost:11434"`, `OLLAMA_MODEL = "llama3.2:3b"`, `LLM_TIMEOUT_S = 120`, `SUBSET_PER_CLASS = 50`.
 
-- [ ] **Step 1: Buat folder, venv, dan paket**
+- [x] **Step 1: Buat folder, venv, dan paket**
 
 Di PowerShell: `py -m venv .venv`, lalu `.venv\Scripts\Activate.ps1`. Bila skrip aktivasi diblokir, panggil `.venv\Scripts\python.exe` langsung di semua perintah. Isi `requirements.txt` dengan: `pandas`, `scikit-learn`, `joblib`, `requests`, `pytest`. Jalankan `pip install -r requirements.txt`.
 Verifikasi: `python -c "import pandas, sklearn, joblib, requests; print('ok')"` mencetak `ok`.
 
-- [ ] **Step 2: Tulis `AGENTS.md` persis seperti ini**
+- [x] **Step 2: Tulis `AGENTS.md` persis seperti ini**
 
 ```
 # Aturan untuk agen koding
@@ -104,17 +104,17 @@ Verifikasi: `python -c "import pandas, sklearn, joblib, requests; print('ok')"` 
 - Jelaskan tiap fungsi dalam satu kalimat agar anggota kelompok bisa mengulanginya.
 ```
 
-- [ ] **Step 3: Atur Antigravity**
+- [x] **Step 3: Atur Antigravity**
 
 Terminal Execution Policy = Request Review, Review Policy = Request Review, buka hanya folder `web-attack-detector`. Verifikasi: minta agen menjalankan `python --version`; Antigravity harus meminta persetujuan Anda dulu.
 
-- [ ] **Step 4: Tulis `src/config.py`** dengan konstanta di atas.
+- [x] **Step 4: Tulis `src/config.py`** dengan konstanta di atas.
 
-- [ ] **Step 5: Unduh dataset**
+- [x] **Step 5: Unduh dataset**
 
 Unduh CSIC 2010 dari halaman resmi (`tic.itefi.csic.es/dataset`) ke `data/raw/`. Bila tautan unduhan mati, cari mirror dan catat sumbernya di catatan pribadi (`docs/catatan-<A|B|C>.md`). Verifikasi: catat di catatan pribadi (`docs/catatan-<A|B|C>.md`) nama file dan ukurannya, dan mana yang berisi lalu lintas normal dan mana yang anomali.
 
-- [ ] **Step 6: Commit** (bila git belum ada, lewati dan simpan salinan folder)
+- [x] **Step 6: Commit** (bila git belum ada, lewati dan simpan salinan folder)
 
 ```bash
 git init

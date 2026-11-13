@@ -12,3 +12,4 @@ data/processed/*
 
 models/*
 !models/.gitkeep
+

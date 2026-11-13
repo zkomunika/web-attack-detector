@@ -4,3 +4,4 @@ OLLAMA_HOST = "http://localhost:11434"
 OLLAMA_MODEL = "llama3.2:3b"
 LLM_TIMEOUT_S = 120
 SUBSET_PER_CLASS = 100
+
