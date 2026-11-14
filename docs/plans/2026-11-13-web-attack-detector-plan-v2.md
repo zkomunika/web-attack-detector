@@ -300,17 +300,17 @@ Bila F1 salah satu model 0,99 atau lebih, jangan senang dulu. Cetak 15 koefisien
 **Files:**
 - Create: `reports/error_analysis_A.md`, `reports/error_analysis_B.md`, `reports/error_analysis_C.md` (satu per orang), lalu digabung jadi `reports/error_analysis.md`
 
-- [ ] **Step 1: Pilih model terbaik menurut F1** dan baca `reports/<model>_fp.csv` dan `reports/<model>_fn.csv`.
+- [x] **Step 1: Pilih model terbaik menurut F1** dan baca `reports/<model>_fp.csv` dan `reports/<model>_fn.csv`.
 
-- [ ] **Step 2: Bagi baris di antara tiga anggota; tiap orang mengisi tabel di berkasnya sendiri**
+- [x] **Step 2: Bagi baris di antara tiga anggota; tiap orang mengisi tabel di berkasnya sendiri**
 
 Kolom: `id | jenis (FP/FN) | cuplikan permintaan | kategori penyebab | dugaan kenapa model keliru`. Contoh kategori: normal tapi memuat tanda kutip, serangan yang disamarkan, serangan sangat pendek. Hasil yang diperiksa: minimal 20 FP dan 20 FN terisi (atau semuanya bila kesalahannya kurang dari 20), masing-masing punya kategori.
 
-- [ ] **Step 3: Orang A menggabungkan ketiga berkas menjadi `reports/error_analysis.md`, lalu menulis ringkasan lima baris**: jumlah per kategori dan dua kategori kesalahan yang paling sering.
+- [x] **Step 3: Orang A menggabungkan ketiga berkas menjadi `reports/error_analysis.md`, lalu menulis ringkasan lima baris**: jumlah per kategori dan dua kategori kesalahan yang paling sering.
 
 - [ ] **Step 4: Sesi saling menjelaskan 15 menit**: tiap anggota menjelaskan dua baris miliknya dengan kata sendiri.
 
-- [ ] **Step 5: Commit** (`git commit -m "docs: analisis FP/FN"`)
+- [x] **Step 5: Commit** (`git commit -m "docs: analisis FP/FN"`)
 
 **Cek pemahaman:** Kategori kesalahan mana yang paling berbahaya untuk bank, FP atau FN, dan kenapa?
 
@@ -476,7 +476,7 @@ def test_main_continues_when_ollama_down(capsys, tiny_model_path, monkeypatch):
 
 - [x] **Step 4: Jalankan, pastikan lulus** (Expected: 3 passed). Lalu `pytest -v` untuk seluruh suite, semuanya harus lulus.
 
-- [ ] **Step 5: Coba demo dengan contoh**
+- [x] **Step 5: Coba demo dengan contoh**
 
 ```
 python -m src.demo --request "GET /index.html HTTP/1.1" --llm
@@ -499,8 +499,8 @@ Demo utama dijalankan di Laptop C (ada GPU dan Ollama). Tiap anggota menjalankan
 **Pemilik:** A, B, dan C; tiap orang mengerjakan bagian miliknya, A merangkum laporan.
 
 - [x] Naikkan subset LLM (200 normal dan 200 serangan, atau lebih bila cepat), lalu jalankan ulang Task 6. Opsional: coba model lebih besar (7B sampai 8B) bila muat di VRAM, dan bandingkan.
-- [ ] Rapikan analisis FP/FN dan bandingkan jenis kesalahan klasik vs LLM.
-- [ ] Tulis bagian keterbatasan: CSIC 2010 adalah dataset lama dan buatan, tidak memuat serangan modern, dan hasilnya belum tentu berlaku di lalu lintas nyata.
+- [x] Rapikan analisis FP/FN dan bandingkan jenis kesalahan klasik vs LLM.
+- [x] Tulis bagian keterbatasan: CSIC 2010 adalah dataset lama dan buatan, tidak memuat serangan modern, dan hasilnya belum tentu berlaku di lalu lintas nyata.
 - [ ] Rekam video 5 sampai 10 menit: semua anggota tampil dan menjelaskan bagiannya sendiri.
 - [ ] Tulis laporan (pendahuluan, metode, pembahasan, kesimpulan). Sebelum mengutip angka serangan FortiGuard, ambil dari laporan primernya.
 

@@ -9,7 +9,7 @@ Dua fungsi utama:
 import re
 
 import numpy as np
-from sklearn.pipeline import FeatureUnion
+from sklearn.pipeline import FeatureUnion, Pipeline
 from sklearn.preprocessing import FunctionTransformer, StandardScaler
 from sklearn.feature_extraction.text import TfidfVectorizer
 
@@ -75,15 +75,8 @@ def build_feature_union(max_features: int = 20000) -> FeatureUnion:
         max_features=max_features,
     )
 
-    custom_pipeline = FeatureUnion([
-        ("custom_scaled", FeatureUnion([
-            ("custom_raw", FunctionTransformer(handcrafted_features)),
-        ])),
-    ])
-
     # Pakai Pipeline kecil: FunctionTransformer → StandardScaler
-    from sklearn.pipeline import Pipeline as _Pipeline
-    custom_step = _Pipeline([
+    custom_step = Pipeline([
         ("extract", FunctionTransformer(handcrafted_features)),
         ("scale",   StandardScaler(with_mean=False)),
     ])
