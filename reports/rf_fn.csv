@@ -1,0 +1,35 @@
+request,label
+"PUT http://localhost:8080/tienda1/publico/autenticar.jsp HTTP/1.1
+modo=entrar&login=dion&pwd=tric�tomo&remember=off&B1=Entrar",1
+"POST http://localhost:8080/tienda1/publico/registro.jsp HTTP/1.1
+modo=registro&login=houdini&password=dEsbR/'oce&nombre=Yulisa&apellidos=Aup� Feria&email=hee4@ropadegolf.name&dni=77786356B&direccion=C/ Guatemala, S/N, 6G&ciudad=J�vea/X�bia&cp=39790&provincia=Zaragoza&ntc=2661491792098457&B1=Registrar",1
+"POST http://localhost:8080/tienda1/publico/pagar.jsp HTTP/1.1
+modo=insertar&precio=6499+&B1=Pasar por caja",1
+"POST http://localhost:8080/tienda1/miembros/editar.jsp HTTP/1.1
+modo=registro&login=amm*a*mari&password=ch07ico3o&nombre=Jerem�as&apellidos=Maslo Arrunategui&email=ratcliff@mataroweb.gw&dni=26853011M&direccion=Calle Felipe De Diego 191, 2H&ciudad=Montefr�o&cp=36520&provincia=Burgos&ntc=3246825984475356&B1=Registrar",1
+"GET http://localhost:8080/tienda1/miembros/editar.jsp?modo=registro&login=cimino&password=tarifa&nombre=Armengol&apellidos=Zurera Boixadra&email=gamblers-gates9@showeb-handling.sg&dni=39315831E&direccion=C/ Aires De La Mar, 6 &ciudad=Alb�nchez&cp=09441&provincia=+&ntc=2965845845269028&B1=Registrar HTTP/1.1",1
+"POST http://localhost:8080/tienda1/miembros/editar.jsp HTTP/1.1
+modo=registro&login=elefther&password=a_ma6ar&nombre=Dacil&apellidos=Bon�as Aleza&email=mallalie@u@logiteclin@es.@ly&dni=41273299Y&direccion=Lucas Mallada, 28, &ciudad=Cantalpino&cp=34469&provincia=Guip�zcoa&ntc=7363123052285144&B1=Registrar",1
+GET http://localhost:8080/tienda1/publico/autenticar.jsp?modo=entrar&login=?denise&pwd=pLaSMaDoR&remember=on&B1=Entrar HTTP/1.1,1
+"POST http://localhost:8080/tienda1/publico/registro.jsp HTTP/1.1
+modo=registro&login=rajan&password=paLmear&nombre=Amparo&apellidos=Martin Bansells&email=hampden-baker8@unidadesdeventilacion.cy&dni=48800601Y&direccion=Calle Formentera, 184 4-C&ciudad=San Garc�a de Ingelmos&cp=37129&provincia=Burgos&ntc=103485266602830&B1=Registrar",1
+"POST http://localhost:8080/tienda1/publico/pagar.jsp HTTP/1.1
+modo=insertar&precio=2714|&B1=Pasar por caja",1
+"POST http://localhost:8080/tienda1/publico/autenticar.jsp HTTP/1.1
+modo=entrar&login=sysint9&pwd=p205il/o2a&remember=on&B1=Entrar",1
+"POST http://localhost:8080/tienda1/publico/anadir.jsp HTTP/1.1
+id=1&nombre=Queso Manchego&precio=85&cantidad=76&B1=A�adir al carrito|",1
+"POST http://localhost:8080/tienda1/miembros/editar.jsp HTTP/1.1
+modo=registro&login=xian&password=sa?lmuera&nombre=Jhesua&apellidos=G�ido&email=curzon@truecatucasa.name&dni=11376900L&direccion=C/ Trinidad, 130 &ciudad=Benatae&cp=05413&provincia=Barcelona&ntc=951749821833366A&B1=Registrar",1
+GET http://localhost:8080/tienda1/publico/autenticar.jsp?modo=entrar&login=??eryn&pwd=menorqu�n&remember=on&B1=Entrar HTTP/1.1,1
+"GET http://localhost:8080/tienda1/publico/registro.jsp?modo=registro&login=radick&password=T76F6li6&nombre=Tercero&apellidos=Muleiro&email=roope@gesmahernan.kn&dni=54463358W&direccion=Ronda Cervantes 146, 13?G&ciudad=Ucl*.�s&cp=12225&provincia=Albacete&ntc=2464400659124948&B1=Registrar HTTP/1.1",1
+GET http://localhost:8080/tienda1/miembros/editar.jsp?modo=registro&login=simser&password=Canj4l9n&nombre=Kimberley&apellidos=Romaso&email=partsalev@easyviaggio.web&dni=A'0A5223S&direccion=Calle Alfonso Paso 143 &ciudad=Constantina&cp=42138&provincia=Lleida&ntc=9910614404544138&B1=Registrar HTTP/1.1,1
+"POST http://localhost:8080/tienda1/publico/anadir.jsp HTTP/1.1
+id=3&nombre=Vino Rioja&precio=85/&cantidad=7&B1=A�adir al carrito",1
+"POST http://localhost:8080/tienda1/publico/autenticar.jsp HTTP/1.1
+modo=entrar&login=dovel&pwd=/buldar&remember=off&B1=Entrar",1
+"POST http://localhost:8080/tienda1/miembros/editar.jsp HTTP/1.1
+modo=registro&login=kathlin&password=+laur938&nombre=Jorda?na&apellidos=Pubill Tena&email=strasberg-gales@videocasa-ebs.gi&dni=75987637F&direccion=Isla De Salvora, 65 1?C&ciudad=Larraona&cp=40542&provincia=Guip�zcoa&ntc=6860803220087599&B1=Registrar",1
+"PUT http://localhost:8080/tienda1/publico/registro.jsp HTTP/1.1
+modo=registro&login=alane&password=9u7Je&nombre=Ignolinda&apellidos=Motta&email=fargue-innis@soycastellano.no&dni=04469375S&direccion=Calle Melchor Cobo Medina, 16, 6H&ciudad=Andorra&cp=09129&provincia=Girona&ntc=1134011255413195&B1=Registrar",1
+"GET http://localhost:8080/tienda1/publico/registro.jsp?modo=registro&login=letsome9&password=simple&nombre=Perfecta&apellidos=Lowery Volta&email=seel@indorec.ge&dni=05171912V&direccion=C/ Agustina Fierra, 49, &ciudad=Villabasta de Vald/?avia&cp=46715&provincia=Burgos&ntc=6556979183874771&B1=Registrar HTTP/1.1",1

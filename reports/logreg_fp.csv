@@ -1,0 +1,28 @@
+request,label
+"GET http://localhost:8080/tienda1/publico/registro.jsp?modo=registro&login=boyer&password=32x4i17uib1e&nombre=Shiirly&apellidos=And�jar Arqu�&email=gardenaes-lawton@6horas.fj&dni=90448168R&direccion=Ave Maria, 131, &ciudad=Camporredondo&cp=09640&provincia=Ja�n&ntc=3535089372971785&B1=Registrar HTTP/1.1",0
+"POST http://localhost:8080/tienda1/miembros/editar.jsp HTTP/1.1
+modo=registro&login=kawahara&password=coposes+or&nombre=Leopolda&apellidos=Rojo&email=yegorova@onlinegratis.aq&dni=26857148W&direccion=C/ Poetisa Juana Luna 135, 5-G&ciudad=Robledo, El&cp=17132&provincia=C�ceres&ntc=1013839255415195&B1=Registrar",0
+"POST http://localhost:8080/tienda1/publico/registro.jsp HTTP/1.1
+modo=registro&login=bertini&password=semiforme&nombre=Edimundo&apellidos=Buscart&email=arneric7@pcvirus.pg&dni=94276042P&direccion=Urbanizacion Santo Domingo De La Calzada 113 6H&ciudad=Grado&cp=40529&provincia=Guadalajara&ntc=1693983351112754&B1=Registrar",0
+GET http://localhost:8080/tienda1/publico/registro.jsp?modo=registro&login=jordanna3&password=desembarazadamente&nombre=Yamal&apellidos=Llebot Sayago&email=doyle-murray@ajuntamentbarcelona2-0.hn&dni=59201826X&direccion=Sierra Alta 138 &ciudad=Iruelos&cp=19174&provincia=M�laga&ntc=6515740156899202&B1=Registrar HTTP/1.1,0
+"GET http://localhost:8080/tienda1/miembros/editar.jsp?modo=registro&login=glaszcza&password=jEdAr&nombre=Nazareth&apellidos=Zaltron Santill�n&email=koslo-gelden@puravidasa.ls&dni=33787879M&direccion=Calle Del Interprete, 28 2A&ciudad=San Miguel del Cinca&cp=49840&provincia=Almer�a&ntc=1654589375265367&B1=Registrar HTTP/1.1",0
+GET http://localhost:8080/tienda1/miembros/imagenes/zarauz.jpg HTTP/1.1,0
+GET http://localhost:8080/tienda1/publico/vaciar.jsp?B2=Vaciar carrito HTTP/1.1,0
+"POST http://localhost:8080/tienda1/miembros/editar.jsp HTTP/1.1
+modo=registro&login=galina&password=4a9a8g�8&nombre=Geraldina&apellidos=Cervi� Fornas&email=funicello-gadden@18horas.fo&dni=75000191C&direccion=Saavedra Fajardo S/N, 3-H&ciudad=Revellinos&cp=31435&provincia=M�laga&ntc=8095702483441031&B1=Registrar",0
+"POST http://localhost:8080/tienda1/miembros/editar.jsp HTTP/1.1
+modo=registro&login=meany&password=tEaTIno&nombre=Gaia&apellidos=Arany�&email=cruize-bessel@interpretacion-diccionario-y-significado-de-los-su&dni=01812863A&direccion=Calle Monte Tegra, 155, &ciudad=L�jar&cp=08783&provincia=C�diz&ntc=5565882501750174&B1=Registrar",0
+"GET http://localhost:8080/tienda1/miembros/editar.jsp?modo=registro&login=galina&password=4a9a8g�8&nombre=Geraldina&apellidos=Cervi� Fornas&email=funicello-gadden@18horas.fo&dni=75000191C&direccion=Saavedra Fajardo S/N, 3-H&ciudad=Revellinos&cp=31435&provincia=M�laga&ntc=8095702483441031&B1=Registrar HTTP/1.1",0
+"GET http://localhost:8080/tienda1/publico/registro.jsp?modo=registro&login=kinamon&password=Paleteo&nombre=S�ia&apellidos=Banda Garitacelaya&email=stadler_munks@chevrolet-volt.at&dni=81878772Z&direccion=Calle Regina 18, &ciudad=Molinos, Los&cp=46838&provincia=Asturias&ntc=2756434329152004&B1=Registrar HTTP/1.1",0
+"GET http://localhost:8080/tienda1/miembros/editar.jsp?modo=registro&login=reinhard&password=d�dima&nombre=Heli&apellidos=Ponce Vilda&email=scheff_guiffre@interpretacion-diccionario-y-significado-de-los-s&dni=59779905F&direccion=El Morejon, S/N 11?D&ciudad=Arbeca&cp=39200&provincia=Segovia&ntc=8869503887772031&B1=Registrar HTTP/1.1",0
+"POST http://localhost:8080/tienda1/miembros/editar.jsp HTTP/1.1
+modo=registro&login=glaszcza&password=jEdAr&nombre=Nazareth&apellidos=Zaltron Santill�n&email=koslo-gelden@puravidasa.ls&dni=33787879M&direccion=Calle Del Interprete, 28 2A&ciudad=San Miguel del Cinca&cp=49840&provincia=Almer�a&ntc=1654589375265367&B1=Registrar",0
+"POST http://localhost:8080/tienda1/miembros/editar.jsp HTTP/1.1
+modo=registro&login=dulcinea&password=aDNato&nombre=Ainara&apellidos=Posligua Berber&email=juergens-shear@imarbella.dm&dni=41976429A&direccion=C/ Virgen De La Palma, 131 5-B&ciudad=Manzanal de los Infantes&cp=19357&provincia=Ciudad Real&ntc=7434846807193108&B1=Registrar",0
+"GET http://localhost:8080/tienda1/miembros/editar.jsp?modo=registro&login=purgerso1&password=faci59ado&nombre=Alegr�a&apellidos=R�bano Chaves&email=engh-stritzel@normatic-vending.lv&dni=47939000P&direccion=Charca Verde 165, &ciudad=Medina del Campo&cp=25245&provincia=Pontevedra&ntc=3920119286282198&B1=Registrar HTTP/1.1",0
+"GET http://localhost:8080/tienda1/miembros/editar.jsp?modo=registro&login=dulcinea&password=aDNato&nombre=Ainara&apellidos=Posligua Berber&email=juergens-shear@imarbella.dm&dni=41976429A&direccion=C/ Virgen De La Palma, 131 5-B&ciudad=Manzanal de los Infantes&cp=19357&provincia=Ciudad Real&ntc=7434846807193108&B1=Registrar HTTP/1.1",0
+"GET http://localhost:8080/tienda1/miembros/editar.jsp?modo=registro&login=vyza&password=DiSIPAr&nombre=Argelio&apellidos=Palau Ustrell&email=greenhalgh@cafedeteatro.np&dni=81180031J&direccion=Cayetano Polo ""polito"" 90 2?A&ciudad=Santa Mar�a de las Hoyas&cp=28609&provincia=Badajoz&ntc=6449111559125327&B1=Registrar HTTP/1.1",0
+"POST http://localhost:8080/tienda1/publico/registro.jsp HTTP/1.1
+modo=registro&login=doan7&password=mil�sima&nombre=Yaideem&apellidos=Penido Maym'o&email=olaughlin@pinkplanetplasencia.uy&dni=37662577P&direccion=Avenida San Francisco Javier, 5, &ciudad=D�lar&cp=24324&provincia=Valladolid&ntc=2781714156257998&B1=Registrar",0
+GET http://localhost:8080/tienda1/miembros/editar.jsp?modo=registro&login=tatsugaw&password=poseer&nombre=Serena&apellidos=Otey Grillo&email=remus-lanner@dissident.af&dni=77786356B&direccion=C/ Virgen De Las Injurias 36 &ciudad=Alesanco&cp=29460&provincia=Madrid&ntc=0366717411833488&B1=Registrar HTTP/1.1,0
+GET http://localhost:8080/tienda1/publico/productos.jsp HTTP/1.1,0
