@@ -23,7 +23,9 @@ modo=registro&login=nitin&password=r4mitir&nombre=Lionel&apellidos=Nume/ros *May
 GET http://localhost:8080/tienda1/publico/autenticar.jsp?modo=entrar&login=??eryn&pwd=menorqu�n&remember=on&B1=Entrar HTTP/1.1,1
 "GET http://localhost:8080/tienda1/publico/registro.jsp?modo=registro&login=micgael5&password=IMperI'AL,i/sMO&nombre=Nanda&apellidos=Bar� Brathwaite&email=stacquet6@apicultor.so&dni=71628074W&direccion=C/ Poeta Joan Valls 69 7?B&ciudad=Venturada&cp=06226&provincia=Tarragona&ntc=9868474737420464&B1=Registrar HTTP/1.1",1
 "GET http://localhost:8080/tienda1/miembros/editar.jsp?modo=registro&login=vincente&password=ajoarriero&nombre=Matius&apellidos=Donohue Colom&email=dobson7@inversioneolica.sz&dni=66726372Z&direccion=Fernan Caballero, 13 6F&ciudad=Sanl�car de Guadiana&cp=14857&provincia=Tol*edo&ntc=2276944553574082&B1=Registrar HTTP/1.1",1
-"GET http://localhost:8080/tienda1/miembros/editar.jsp?modo=registro&login=santitor&password=Zarza/h�,n&nombre=Lionel&apellidos=Ilizaliturri Corominas&email=cubelik@deltamarina.th&dni=71111353E&direccion=Rioja 153, &ciudad=Pe�amellera Baja&cp=19184&provincia=Zamora&ntc=0802143307607123&B1=Registrar HTTP/1.1",1
-"GET http://localhost:8080/tienda1/miembros/editar.jsp?modo=registro&login=clark-st&password=4A4R5R&nombre=Semiramis&apellidos=Chapi Vieira&email=tirard_lamore@biosoftware.cv&dni=88665105J&direccion=Calle Miguel Romero Matinez S/N, &ciudad=Sayalonga&cp=09227&provincia=L?a Ri?oj*a&ntc=2618138569718823&B1=Registrar HTTP/1.1",1
-"GET http://localhost:8080/tienda1/publico/registro.jsp?modo=registro&login=cher5&password=estr1pa69cio&nombre=Acucio&apellidos=Revert� Martinho&email=kiga@casabolsa43.ky&dni=84245966W&direccion=Calle Pachin De Melas 143, 8D&ciudad=G�/dor&cp=31154&provincia=Madrid&ntc=4412645005602081&B1=Registrar HTTP/1.1",1
+"POST http://localhost:8080/tienda1/publico/autenticar.jsp HTTP/1.1
+modo=entrar&login=pagi&pwd=cal,,8,ndar&remember=off&B1=Entrar",1
+GET http://localhost:8080/tienda1/publico/autenticar.jsp?modo=entrar&login=tscha'/j+a&pwd=duc9i89&remember=on&B1=Entrar HTTP/1.1,1
+"POST http://localhost:8080/tienda1/publico/autenticar.jsp HTTP/1.1
+modo=entrar&login=je**nne,e&pwd=excuSAdor&remember=off&B1=Entrar",1
 "GET http://localhost:8080/tienda1/miembros/editar.jsp?modo=registro&login=brosso&password=misT66L&nombre=Adolfina&apellidos=Olalla Padoan&email=pedrucho_mikkelborg@demasiado.com.co&dni=69829332K&direccion=Arnau D'oms, 2 &ciudad=Morella&cp=50546&provincia=Ca.ntabria&ntc=6446879002828554&B1=Registrar HTTP/1.1",1
