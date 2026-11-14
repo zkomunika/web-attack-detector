@@ -64,3 +64,59 @@ Rekomendasi: SUBSET_PER_CLASS = 200
 3. **Karakteristik Kesalahan:**
    - **Kelebihan LLM:** Mampu mendeteksi anomali karakter tunggal atau format yang tidak wajar (`?`, `*`, `+` pada username/DNI) yang terlewat oleh model n-gram klasik (21 kasus FN klasik berhasil diselamatkan LLM).
    - **Kelemahan LLM:** Terlalu paranoid (*false alarm* tinggi); teks normal dengan parameter otentikasi (`login`, `pwd`), karakter Spanyol, atau tanda baca wajar langsung dicap sebagai `ATTACK`. Untuk deployment nyata, model klasik jauh lebih aman bagi pengalaman pengguna (tidak memblokir pengguna asli).
+
+
+---
+
+## Task 7 — Uji Coba Demo CLI (Step 5)
+
+**Tanggal:** 14 November 2026
+**Model:** `models/rf.joblib` (Random Forest, seed 42)
+**LLM:** `llama3.2:3b` via Ollama lokal (GPU RTX 4050)
+**Branch:** `task-4-c`
+
+### Perintah dan Hasil
+
+**Demo (a) — Permintaan normal (`GET /index.html HTTP/1.1`):**
+
+```
+$ python -m src.demo --request "GET /index.html HTTP/1.1" --llm --model-path models/rf.joblib
+Model klasik: ATTACK (p=0.98)
+LLM: NORMAL (6.1 s)
+```
+
+**Temuan:** Model RF salah prediksi (FP) — `GET /index.html` yang sangat pendek dan tanpa parameter justru diprediksi ATTACK dengan probabilitas tinggi (p=0.98). LLM benar menyebutnya NORMAL. Ini menunjukkan kelemahan model RF: permintaan sangat pendek tanpa parameter yang dikenal menghasilkan n-gram asing yang terpetakan ke pola serangan di training data.
+
+---
+
+**Demo (b) — Permintaan SQL injection (`GET /item?id=1' OR '1'='1 HTTP/1.1`):**
+
+```
+$ python -m src.demo --request "GET /item?id=1' OR '1'='1 HTTP/1.1" --llm --model-path models/rf.joblib
+Model klasik: ATTACK (p=0.94)
+LLM: ATTACK (2.5 s)
+```
+
+**Temuan:** Kedua model benar — payload SQLi klasik dengan `' OR '1'='1` terdeteksi sebagai ATTACK oleh RF (p=0.94) maupun LLM. Ini kasus ideal di mana model klasik cepat (inferensi lokal) dan akurat untuk serangan dengan pola jelas.
+
+---
+
+**Demo (c) — Contoh FN dari `rf_fn.csv` (serangan yang lolos dari RF):**
+
+```
+$ python -m src.demo --request "GET http://localhost:8080/tienda1/miembros/editar.jsp?modo=registro&login=simser&password=Canj4l9n&nombre=Kimberley&apellidos=Romaso&email=partsalev@easyviaggio.web&dni=A'0A5223S&direccion=Calle Alfonso Paso 143 &ciudad=Constantina&cp=42138&provincia=Lleida&ntc=9910614404544138&B1=Registrar HTTP/1.1" --llm --model-path models/rf.joblib
+Model klasik: NORMAL (p=0.24)
+LLM: ATTACK (2.5 s)
+```
+
+**Temuan:** Contoh FN nyata dari dataset — permintaan pendaftaran panjang dengan sisipan tanda kutip tunggal `'` di field `dni` (`dni=A'0A5223S`) adalah SQL injection, namun RF hanya memberinya probabilitas serangan 0.24 dan memprediksi NORMAL. LLM berhasil mendeteksinya sebagai ATTACK. Ini bahan demo yang kuat untuk menunjukkan analisis FP/FN: satu karakter sisipan di antara banyak parameter panjang "mengencerkan" sinyal n-gram hingga di bawah ambang RF.
+
+---
+
+### Ringkasan Uji Demo
+
+| Contoh | Perintah ringkas | Hasil RF | Hasil LLM | Benar? |
+|---|---|---|---|---|
+| (a) `GET /index.html HTTP/1.1` | `--llm --model-path models/rf.joblib` | ATTACK (p=0.98) FP | NORMAL (6.1 s) | LLM benar, RF salah |
+| (b) `GET /item?id=1' OR '1'='1 HTTP/1.1` | `--llm --model-path models/rf.joblib` | ATTACK (p=0.94) | ATTACK (2.5 s) | Keduanya benar |
+| (c) GET editar.jsp + dni=A'0A5223S | `--llm --model-path models/rf.joblib` | NORMAL (p=0.24) FN | ATTACK (2.5 s) | LLM benar, RF salah |
