@@ -1,0 +1,32 @@
+request,label
+"POST http://localhost:8080/tienda1/publico/anadir.jsp HTTP/1.1
+id=2&nombre=Vino Rioja&precio=39&cantidad=4&B1=A�adir al carrito",0
+"POST http://localhost:8080/tienda1/publico/pagar.jsp HTTP/1.1
+modo=insertar&precio=5353&B1=Confirmar",0
+"GET http://localhost:8080/tienda1/miembros/editar.jsp?modo=registro&login=kory&password=491vi06a5&nombre=Yaideem&apellidos=Troule Politi&email=cardenas_johansson@sorority.kz&dni=35817134Q&direccion=Calle Doctor Jose Manuel Pascual y Pascual 146, 4?C&ciudad=Banyeres del Pened�s&cp=19432&provincia=Zamora&ntc=4436070714409479&B1=Registrar HTTP/1.1",0
+"POST http://localhost:8080/tienda1/miembros/editar.jsp HTTP/1.1
+modo=registro&login=ayyuce&password=m9ncilla57&nombre=Delujan&apellidos=Anaya P�ez&email=broun_granlund@purplemoongrn.fi&dni=48872890Y&direccion=Tauro 34 7B&ciudad=Iznatoraf&cp=50374&provincia=Teruel&ntc=0058041048086449&B1=Registrar",0
+"POST http://localhost:8080/tienda1/publico/anadir.jsp HTTP/1.1
+id=3&nombre=Vino Rioja&precio=39&cantidad=5&B1=A�adir al carrito",0
+GET http://localhost:8080/tienda1/publico/pagar.jsp?modo=insertar&precio=5518&B1=Pasar por caja HTTP/1.1,0
+GET http://localhost:8080/tienda1/publico/vaciar.jsp?B2=Vaciar carrito HTTP/1.1,0
+"GET http://localhost:8080/tienda1/miembros/editar.jsp?modo=registro&login=shacham&password=numulita&nombre=Niseas&apellidos=Dovale Azuaga&email=muscat@deportechino.af&dni=73106866D&direccion=Calle Codigo Correspondencia Oficial Correos-telegrafos, 116, 6C&ciudad=Pedrera&cp=16393&provincia=Zaragoza&ntc=5758587010125322&B1=Registrar HTTP/1.1",0
+GET http://localhost:8080/tienda1/publico/anadir.jsp?id=1&nombre=Queso Manchego&precio=39&cantidad=5&B1=A�adir al carrito HTTP/1.1,0
+"POST http://localhost:8080/tienda1/miembros/editar.jsp HTTP/1.1
+modo=registro&login=kory&password=491vi06a5&nombre=Yaideem&apellidos=Troule Politi&email=cardenas_johansson@sorority.kz&dni=35817134Q&direccion=Calle Doctor Jose Manuel Pascual y Pascual 146, 4?C&ciudad=Banyeres del Pened�s&cp=19432&provincia=Zamora&ntc=4436070714409479&B1=Registrar",0
+GET http://localhost:8080/tienda1/publico/pagar.jsp?modo=insertar&precio=2982&B1=Pasar por caja HTTP/1.1,0
+"POST http://localhost:8080/tienda1/publico/caracteristicas.jsp HTTP/1.1
+id=2",0
+GET http://localhost:8080/tienda1/publico/caracteristicas.jsp?id=1 HTTP/1.1,0
+"POST http://localhost:8080/tienda1/publico/anadir.jsp HTTP/1.1
+id=2&nombre=Queso Manchego&precio=39&cantidad=55&B1=A�adir al carrito",0
+"POST http://localhost:8080/tienda1/publico/anadir.jsp HTTP/1.1
+id=3&nombre=Jam�n Ib�rico&precio=100&cantidad=0&B1=A�adir al carrito",0
+"POST http://localhost:8080/tienda1/publico/anadir.jsp HTTP/1.1
+id=3&nombre=Queso Manchego&precio=100&cantidad=9&B1=A�adir al carrito",0
+GET http://localhost:8080/tienda1/publico/pagar.jsp?modo=insertar&precio=9335&B1=Pasar por caja HTTP/1.1,0
+GET http://localhost:8080/tienda1/publico/pagar.jsp?modo=insertar&precio=3582&B1=Confirmar HTTP/1.1,0
+"POST http://localhost:8080/tienda1/publico/autenticar.jsp HTTP/1.1
+modo=entrar&login=niu&pwd=bRoquel&remember=on&B1=Entrar",0
+"POST http://localhost:8080/tienda1/publico/pagar.jsp HTTP/1.1
+modo=insertar&precio=2&B1=Pasar por caja",0
