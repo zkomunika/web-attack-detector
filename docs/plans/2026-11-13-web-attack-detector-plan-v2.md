@@ -141,11 +141,11 @@ git commit -m "chore: setup proyek"
   - `load_csic(normal_paths: list[str], anomalous_paths: list[str]) -> pd.DataFrame` dengan kolom `request` (str, hasil `extract_text`) dan `label` (int, 0 atau 1).
   - `split_data(df: pd.DataFrame, test_size: float = 0.3, seed: int = SEED) -> tuple[pd.DataFrame, pd.DataFrame]`: hapus duplikat berdasarkan `request` dulu, lalu pisah terstratifikasi menurut `label`.
 
-- [ ] **Step 1: Periksa format file mentah**
+- [x] **Step 1: Periksa format file mentah**
 
 Lihat 30 baris pertama tiap file (`Get-Content -TotalCount 30 data\raw\<file>`). Tulis tiga baris di catatan pribadi (`docs/catatan-<A|B|C>.md`): bagaimana satu permintaan dipisah dari yang berikutnya, di mana letak body, dan apakah ada header. Hasil yang diperiksa: Anda bisa menunjuk di mana satu permintaan berakhir. Keputusan parser bergantung pada ini.
 
-- [ ] **Step 2: Tulis test yang gagal** di `tests/test_data_loader.py`
+- [x] **Step 2: Tulis test yang gagal** di `tests/test_data_loader.py`
 
 ```python
 def test_extract_text_drops_headers():
@@ -170,25 +170,25 @@ def test_split_drops_duplicates(small_df):
     assert len(train) + len(test) == len(small_df)
 ```
 
-- [ ] **Step 3: Jalankan, pastikan gagal**
+- [x] **Step 3: Jalankan, pastikan gagal**
 
 Run: `pytest tests/test_data_loader.py -v`
 Expected: FAIL dengan `ImportError` atau `NameError`.
 
-- [ ] **Step 4: Implementasikan ketiga fungsi di `src/data_loader.py`**
+- [x] **Step 4: Implementasikan ketiga fungsi di `src/data_loader.py`**
 
 Parser pemisah permintaan mengikuti temuan Step 1. `load_csic` memberi label 0 untuk semua `normal_paths` dan 1 untuk semua `anomalous_paths`.
 
-- [ ] **Step 5: Jalankan test, pastikan lulus**
+- [x] **Step 5: Jalankan test, pastikan lulus**
 
 Run: `pytest tests/test_data_loader.py -v`
 Expected: 4 passed.
 
-- [ ] **Step 6: Muat data asli dan catat angkanya**
+- [x] **Step 6: Muat data asli dan catat angkanya**
 
 Jalankan `load_csic` pada file asli lalu `split_data`. Catat di catatan pribadi (`docs/catatan-<A|B|C>.md`): jumlah per kelas sebelum dan sesudah hapus duplikat, serta ukuran train dan test. Angka ini muncul di laporan.
 
-- [ ] **Step 7: Commit** (`git commit -m "feat: pemuat data dan split"`)
+- [x] **Step 7: Commit** (`git commit -m "feat: pemuat data dan split"`)
 
 **Cek pemahaman:** Kenapa header dibuang, dan kenapa duplikat dihapus sebelum split?
 
@@ -208,7 +208,7 @@ Jalankan `load_csic` pada file asli lalu `split_data`. Catat di catatan pribadi 
   - `handcrafted_features(requests) -> np.ndarray` berbentuk `(n, 6)`, urutan kolom: `[panjang, n_karakter_khusus, n_persen, n_kata_sql, n_kata_script, n_digit]`. Karakter khusus: `' " < > ; ( ) % = -`. Kata SQL dihitung dengan regex tanpa membedakan huruf besar kecil: `\b(select|union|insert|drop|or|and|sleep)\b|--`. Kata script: `script|alert|onerror|javascript`.
   - `build_feature_union(max_features: int = 20000) -> sklearn.pipeline.FeatureUnion` berisi `TfidfVectorizer(analyzer="char", ngram_range=(2, 4), lowercase=True)` dan fitur buatan sendiri lewat `FunctionTransformer` lalu `StandardScaler(with_mean=False)`.
 
-- [ ] **Step 1: Tulis test yang gagal**
+- [x] **Step 1: Tulis test yang gagal**
 
 ```python
 def test_handcrafted_shape_and_order():
@@ -228,13 +228,13 @@ def test_feature_union_fit_transform():
     assert m.shape[0] == 2
 ```
 
-- [ ] **Step 2: Jalankan, pastikan gagal** (`pytest tests/test_features.py -v`, Expected: FAIL `ImportError`)
+- [x] **Step 2: Jalankan, pastikan gagal** (`pytest tests/test_features.py -v`, Expected: FAIL `ImportError`)
 
-- [ ] **Step 3: Implementasikan kedua fungsi di `src/features.py`**
+- [x] **Step 3: Implementasikan kedua fungsi di `src/features.py`**
 
-- [ ] **Step 4: Jalankan, pastikan lulus** (Expected: 4 passed)
+- [x] **Step 4: Jalankan, pastikan lulus** (Expected: 4 passed)
 
-- [ ] **Step 5: Commit** (`git commit -m "feat: fitur teks dan fitur buatan sendiri"`)
+- [x] **Step 5: Commit** (`git commit -m "feat: fitur teks dan fitur buatan sendiri"`)
 
 **Cek pemahaman:** Apa yang ditangkap TF-IDF n-gram karakter yang tidak ditangkap hitungan kata SQL, dan sebaliknya?
 
@@ -256,7 +256,7 @@ def test_feature_union_fit_transform():
   - `build_pipeline(kind: str) -> sklearn.pipeline.Pipeline` untuk `kind` di `{"logreg", "rf"}`. Isinya: feature union lalu classifier. `logreg` = `LogisticRegression(max_iter=1000, class_weight="balanced")` dengan 20000 fitur TF-IDF. `rf` = `RandomForestClassifier(n_estimators=100, n_jobs=-1, random_state=SEED)` dengan 5000 fitur TF-IDF (agar muat di RAM laptop).
   - `main()` di `train_classic.py`: melatih kedua model pada train, menyimpan `models/logreg.joblib` dan `models/rf.joblib`, menulis `reports/classic_metrics.json` dan CSV kesalahan per model.
 
-- [ ] **Step 1: Tulis test yang gagal**
+- [x] **Step 1: Tulis test yang gagal**
 
 ```python
 def test_compute_metrics_known_case():
@@ -270,24 +270,24 @@ def test_dump_errors_picks_right_rows(tmp_path):
     assert list(fp.request) == ["c"] and list(fn.request) == ["b"]
 ```
 
-- [ ] **Step 2: Jalankan, pastikan gagal** (`pytest tests/test_evaluate.py -v`, Expected: FAIL `ImportError`)
+- [x] **Step 2: Jalankan, pastikan gagal** (`pytest tests/test_evaluate.py -v`, Expected: FAIL `ImportError`)
 
-- [ ] **Step 3: Implementasikan `compute_metrics` dan `dump_errors` di `src/evaluate.py`**
+- [x] **Step 3: Implementasikan `compute_metrics` dan `dump_errors` di `src/evaluate.py`**
 
-- [ ] **Step 4: Jalankan, pastikan lulus** (Expected: 2 passed)
+- [x] **Step 4: Jalankan, pastikan lulus** (Expected: 2 passed)
 
-- [ ] **Step 5: Implementasikan `build_pipeline` dan `main` di `src/train_classic.py`**
+- [x] **Step 5: Implementasikan `build_pipeline` dan `main` di `src/train_classic.py`**
 
-- [ ] **Step 6: Latih model asli**
+- [x] **Step 6: Latih model asli**
 
 Run: `python -m src.train_classic`
 Expected: tercetak tabel precision, recall, F1 untuk `logreg` dan `rf`, dan file di `models/` dan `reports/` terbentuk. Bila `rf` lebih dari 10 menit atau kehabisan memori, turunkan `n_estimators` ke 50 dan catat di catatan pribadi (`docs/catatan-<A|B|C>.md`).
 
-- [ ] **Step 7: Periksa hasil yang terlalu bagus**
+- [x] **Step 7: Periksa hasil yang terlalu bagus**
 
 Bila F1 salah satu model 0,99 atau lebih, jangan senang dulu. Cetak 15 koefisien terbesar `logreg`, ambil 10 sampel yang diprediksi benar, lalu tulis di catatan pribadi (`docs/catatan-<A|B|C>.md`) fitur apa yang paling berpengaruh dan apakah itu masuk akal (lihat Review Focus no. 1).
 
-- [ ] **Step 8: Commit dan push, termasuk `reports/`** (`git commit -m "feat: model klasik dan evaluasi"`), agar B dan C bisa memakai CSV kesalahan untuk Task 4.
+- [x] **Step 8: Commit dan push, termasuk `reports/`** (`git commit -m "feat: model klasik dan evaluasi"`), agar B dan C bisa memakai CSV kesalahan untuk Task 4.
 
 **Cek pemahaman:** Kenapa serangan dijadikan kelas positif, dan apa arti FP dan FN dalam konteks aplikasi bank?
 
@@ -331,7 +331,7 @@ Kolom: `id | jenis (FP/FN) | cuplikan permintaan | kategori penyebab | dugaan ke
   - `parse_label(raw: str) -> int | None`: token huruf pertama (tanpa membedakan huruf besar kecil): `ATTACK` → 1, `NORMAL` → 0, selain itu `None`.
   - `classify_request(request: str, model: str = OLLAMA_MODEL) -> tuple[int | None, float]`: mengembalikan `(label, detik)`. Memanggil `POST {OLLAMA_HOST}/api/generate` dengan `{"model": model, "prompt": ..., "stream": False, "options": {"temperature": 0, "num_predict": 5}}` dan `timeout=LLM_TIMEOUT_S`. `requests.ConnectionError` diubah menjadi `RuntimeError("Ollama tidak berjalan di <host>")`.
 
-- [ ] **Step 1: Tulis test yang gagal**
+- [x] **Step 1: Tulis test yang gagal**
 
 ```python
 @pytest.mark.parametrize("raw,exp", [("ATTACK", 1), (" attack.", 1), ("NORMAL", 0),
@@ -359,21 +359,21 @@ def test_classify_request_ollama_down(monkeypatch):
         classify_request("x")
 ```
 
-- [ ] **Step 2: Jalankan, pastikan gagal** (`pytest tests/test_llm_classifier.py -v`, Expected: FAIL `ImportError`)
+- [x] **Step 2: Jalankan, pastikan gagal** (`pytest tests/test_llm_classifier.py -v`, Expected: FAIL `ImportError`)
 
-- [ ] **Step 3: Implementasikan ketiga fungsi di `src/llm_classifier.py`**
+- [x] **Step 3: Implementasikan ketiga fungsi di `src/llm_classifier.py`**
 
-- [ ] **Step 4: Jalankan, pastikan lulus** (Expected: 10 passed)
+- [x] **Step 4: Jalankan, pastikan lulus** (Expected: 10 passed)
 
-- [ ] **Step 5: Pasang Ollama dan unduh model (Laptop C)**
+- [x] **Step 5: Pasang Ollama dan unduh model (Laptop C)**
 
 Tutup aplikasi berat dulu. Pasang Ollama dari situs resminya. Biarkan Ollama hanya mendengarkan di localhost (bawaan): jangan diubah agar bisa diakses dari jaringan, apalagi ada Tailscale di laptop ini. Jalankan `ollama pull llama3.2:3b`, lalu `ollama list` untuk memastikan nama modelnya. Bila namanya berbeda, ubah `OLLAMA_MODEL` di `config.py` (commit terpisah, kabari yang lain). Verifikasi GPU terpakai: jalankan `ollama run llama3.2:3b "Jawab satu kata: apa ibu kota Indonesia?"`, lalu di terminal lain jalankan `ollama ps`. Kolom prosesor harus menyebut GPU. Bila hanya CPU, perbarui driver NVIDIA dan mulai ulang Ollama sebelum lanjut.
 
-- [ ] **Step 6: Uji kecepatan pada 10 contoh**
+- [x] **Step 6: Uji kecepatan pada 10 contoh**
 
 Task 1 belum tentu sudah digabung, jadi susun sendiri 10 permintaan contoh berpanjang 300 sampai 600 karakter (tambahkan parameter dan nilai), campuran normal dan serangan. Panggil `classify_request` pada ke-10 contoh dan cetak rata-rata detik per permintaan. Aturan keputusan: rata-rata 5 detik atau kurang → `SUBSET_PER_CLASS = 200`. Antara 5 dan 15 detik → biarkan 100. Lebih dari 15 detik → periksa `ollama ps` (apakah GPU terpakai) atau coba `llama3.2:1b`, lalu catat. Ubah `SUBSET_PER_CLASS` di `config.py` dengan commit terpisah. Ulangi pengukuran kecepatan di Task 6 memakai data asli. Catat angkanya di catatan pribadi.
 
-- [ ] **Step 7: Commit** (`git commit -m "feat: klasifikasi LLM lokal"`)
+- [x] **Step 7: Commit** (`git commit -m "feat: klasifikasi LLM lokal"`)
 
 **Cek pemahaman:** Kenapa suhu 0 dan keluaran dibatasi satu kata, dan apa yang terjadi bila LLM menjawab kalimat panjang?
 
@@ -394,9 +394,9 @@ Task 1 belum tentu sudah digabung, jadi susun sendiri 10 permintaan contoh berpa
   - `run_comparison(subset: pd.DataFrame, classic_pipeline, classify=classify_request) -> pd.DataFrame` dengan kolom `request`, `label`, `pred_classic`, `pred_llm`, `llm_unparsed` (bool), `llm_seconds`. Keluaran `None` dari LLM dipetakan ke `pred_llm = 0` dan `llm_unparsed = True`.
   - `main()`: menulis `reports/comparison.csv` dan `reports/comparison_metrics.json` (metrik kedua model pada subset, rata-rata detik LLM, jumlah `llm_unparsed`).
 
-- [ ] **Step 0: Siapkan Laptop C**: `git pull`, unduh dataset ke `data/raw/`, jalankan `python -m src.train_classic` (seed 42 membuat hasilnya sama dengan di laptop A), dan pastikan Ollama berjalan (`ollama ps`).
+- [x] **Step 0: Siapkan Laptop C**: `git pull`, unduh dataset ke `data/raw/`, jalankan `python -m src.train_classic` (seed 42 membuat hasilnya sama dengan di laptop A), dan pastikan Ollama berjalan (`ollama ps`).
 
-- [ ] **Step 1: Tulis test yang gagal**
+- [x] **Step 1: Tulis test yang gagal**
 
 ```python
 def test_sample_subset_balanced_deterministic(test_df):
@@ -415,22 +415,22 @@ def test_unparsed_is_counted_not_hidden(subset, tiny_pipeline):
     assert out.llm_unparsed.all() and (out.pred_llm == 0).all()
 ```
 
-- [ ] **Step 2: Jalankan, pastikan gagal** (`pytest tests/test_compare.py -v`, Expected: FAIL `ImportError`)
+- [x] **Step 2: Jalankan, pastikan gagal** (`pytest tests/test_compare.py -v`, Expected: FAIL `ImportError`)
 
-- [ ] **Step 3: Implementasikan `sample_subset`, `run_comparison`, dan `main` di `src/compare.py`**
+- [x] **Step 3: Implementasikan `sample_subset`, `run_comparison`, dan `main` di `src/compare.py`**
 
-- [ ] **Step 4: Jalankan test, pastikan lulus** (Expected: 3 passed)
+- [x] **Step 4: Jalankan test, pastikan lulus** (Expected: 3 passed)
 
-- [ ] **Step 5: Jalankan perbandingan asli**
+- [x] **Step 5: Jalankan perbandingan asli**
 
 Run: `python -m src.compare`
 Expected: `reports/comparison.csv` dan `reports/comparison_metrics.json` terbentuk. Bila macet atau jauh lebih lambat dari uji 10 sampel, hentikan, perkecil subset, dan catat.
 
-- [ ] **Step 6: Catat temuan di catatan pribadi (`docs/catatan-<A|B|C>.md`)**
+- [x] **Step 6: Catat temuan di catatan pribadi (`docs/catatan-<A|B|C>.md`)**
 
 Tulis metrik kedua model, jumlah `llm_unparsed`, rata-rata detik LLM, dan lima kasus tempat LLM benar dan klasik salah (dan sebaliknya). Itu bahan video.
 
-- [ ] **Step 7: Commit** (`git commit -m "feat: perbandingan klasik vs LLM"`)
+- [x] **Step 7: Commit** (`git commit -m "feat: perbandingan klasik vs LLM"`)
 
 **Cek pemahaman:** Kenapa kedua model dibandingkan pada subset yang sama persis, dan apa arti `llm_unparsed` yang tinggi?
 
@@ -450,7 +450,7 @@ Tulis metrik kedua model, jumlah `llm_unparsed`, rata-rata detik LLM, dan lima k
   - `predict_classic(request: str, pipeline) -> tuple[int, float]`: `(label, probabilitas serangan)`. Masukannya dalam format yang sama dengan fitur latih (baris permintaan dan body, tanpa header).
   - `main(argv: list[str] | None = None) -> int` dengan argumen `--request TEXT`, `--llm` (opsional), dan `--model-path` (default `models/logreg.joblib`, ganti ke model terbaik). Keluaran: `Model klasik: ATTACK (p=0.97)`, dan bila `--llm`: `LLM: ATTACK (4.2 s)`. Bila Ollama tidak berjalan, cetak peringatan lalu lanjut dengan hasil klasik, kode keluar tetap 0.
 
-- [ ] **Step 1: Tulis test yang gagal**
+- [x] **Step 1: Tulis test yang gagal**
 
 ```python
 def test_predict_classic_returns_valid(tiny_pipeline):
@@ -470,11 +470,11 @@ def test_main_continues_when_ollama_down(capsys, tiny_model_path, monkeypatch):
     assert code == 0 and "Model klasik:" in out and "Ollama tidak berjalan" in out
 ```
 
-- [ ] **Step 2: Jalankan, pastikan gagal** (`pytest tests/test_demo.py -v`, Expected: FAIL `ImportError`)
+- [x] **Step 2: Jalankan, pastikan gagal** (`pytest tests/test_demo.py -v`, Expected: FAIL `ImportError`)
 
-- [ ] **Step 3: Implementasikan `predict_classic` dan `main` di `src/demo.py`** dengan `argparse`.
+- [x] **Step 3: Implementasikan `predict_classic` dan `main` di `src/demo.py`** dengan `argparse`.
 
-- [ ] **Step 4: Jalankan, pastikan lulus** (Expected: 3 passed). Lalu `pytest -v` untuk seluruh suite, semuanya harus lulus.
+- [x] **Step 4: Jalankan, pastikan lulus** (Expected: 3 passed). Lalu `pytest -v` untuk seluruh suite, semuanya harus lulus.
 
 - [ ] **Step 5: Coba demo dengan contoh**
 
@@ -488,7 +488,7 @@ Yang diharapkan (bukan jaminan): contoh pertama NORMAL, contoh kedua ATTACK. Bil
 
 Demo utama dijalankan di Laptop C (ada GPU dan Ollama). Tiap anggota menjalankan demo sekali dan menjelaskan keluarannya. Siapkan 3 contoh: satu normal, satu serangan yang terdeteksi, satu yang salah (untuk menunjukkan analisis FP/FN).
 
-- [ ] **Step 7: Commit** (`git commit -m "feat: demo CLI"`)
+- [x] **Step 7: Commit** (`git commit -m "feat: demo CLI"`)
 
 **Cek pemahaman:** Kenapa demo tetap jalan bila Ollama mati?
 
@@ -498,7 +498,7 @@ Demo utama dijalankan di Laptop C (ada GPU dan Ollama). Tiap anggota menjalankan
 
 **Pemilik:** A, B, dan C; tiap orang mengerjakan bagian miliknya, A merangkum laporan.
 
-- [ ] Naikkan subset LLM (200 normal dan 200 serangan, atau lebih bila cepat), lalu jalankan ulang Task 6. Opsional: coba model lebih besar (7B sampai 8B) bila muat di VRAM, dan bandingkan.
+- [x] Naikkan subset LLM (200 normal dan 200 serangan, atau lebih bila cepat), lalu jalankan ulang Task 6. Opsional: coba model lebih besar (7B sampai 8B) bila muat di VRAM, dan bandingkan.
 - [ ] Rapikan analisis FP/FN dan bandingkan jenis kesalahan klasik vs LLM.
 - [ ] Tulis bagian keterbatasan: CSIC 2010 adalah dataset lama dan buatan, tidak memuat serangan modern, dan hasilnya belum tentu berlaku di lalu lintas nyata.
 - [ ] Rekam video 5 sampai 10 menit: semua anggota tampil dan menjelaskan bagiannya sendiri.
