@@ -31,3 +31,4 @@ def test_dump_errors_picks_right_rows(tmp_path):
     df = pd.DataFrame({"request": list("abcd"), "label": [1, 1, 0, 0]})
     fp, fn = dump_errors(df, [1, 0, 1, 0], str(tmp_path / "x"))
     assert list(fp.request) == ["c"] and list(fn.request) == ["b"]
+
