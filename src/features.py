@@ -92,3 +92,4 @@ def build_feature_union(max_features: int = 20000) -> FeatureUnion:
         ("tfidf",  tfidf),
         ("custom", custom_step),
     ])
+

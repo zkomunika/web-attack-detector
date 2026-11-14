@@ -39,3 +39,4 @@ def test_feature_union_fit_transform():
     # FeatureUnion harus bisa fit_transform dua string dan menghasilkan 2 baris
     m = build_feature_union().fit_transform(["GET /a", "GET /b?x=<script>"])
     assert m.shape[0] == 2
+
